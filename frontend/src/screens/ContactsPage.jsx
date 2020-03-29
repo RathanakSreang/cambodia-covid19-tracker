@@ -1,28 +1,46 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
+import isEmpty from "lodash/isEmpty";
 
 const Container = styled.div`
 `;
 
-@connect(() => {
-  return {};
+@connect((store) => {
+  return {
+    contacts: store.contactReducers.contacts
+  };
 }, {})
 class ContactsPage extends React.Component {
+  renderContactList(contact) {
+    return(
+      <ul>
+        {
+          contact.data.map((elm, i) => {
+            if(elm.type === "link") {
+              return(<li key={i}>
+                <a href={elm.text} target="_blank" rel="noopener noreferrer">{elm.text}</a>
+              </li>);
+            }
+
+            return(<li key={i}>{elm.text}</li>);
+          })
+        }
+      </ul>
+    );
+  }
   render() {
+    const {contacts} = this.props;
+    if(isEmpty(contacts)) {
+      return(<div/>);
+    }
     return (
       <Container className="container bg-white">
         {
-          [1,2,3,4].map((index)=>(
+          contacts.map((contact, index)=>(
             <div className="p-3 border rounded mt-3 text-break" key={index}>
-              <h5 className="mb-2">Phnom Penh</h5>
-              <ul>
-                <li>016 46 62 92</li>
-                <li>016 46 62 92</li>
-                <li><a href="https://www.mohfw.gov.in/coronvavirushelplinenumber.pdf">
-                    https://www.mohfw.gov.in/coronvavirushelplinenumber.pdf
-                  </a></li>
-              </ul>
+              <h5 className="mb-2">{contact.name}</h5>
+              {this.renderContactList(contact)}
             </div>
           ))
         }

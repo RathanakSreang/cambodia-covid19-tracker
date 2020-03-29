@@ -1,16 +1,16 @@
 import { commonConstants } from '../constants';
 
 export default function reducer(state={
-    isFetching: false,
-    isOnline: false,
-    isNewVersion: false,
-    isOnboarding: true,
+    summary: null,
+    provinces: []
   }, action) {
     switch(action.type) {
-      case (commonConstants.SYS_LOADING_COMPLETE): {
+      case (commonConstants.DASHBOARD_LOADED): {
+        const {summary, provinces} = action.payload;
         return {
           ...state,
-          isOnboarding: false
+          summary: summary,
+          provinces: provinces
         };
       }
 

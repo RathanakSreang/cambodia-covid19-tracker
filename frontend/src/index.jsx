@@ -11,7 +11,7 @@ import "shards-ui/dist/css/shards.min.css";
 import './style/index.scss';
 // import 'react-image-lightbox/style.css';
 import * as serviceWorker from './serviceWorker';
-import { loginWithToken }      from './actions/auth.actions'
+import { fetchDashboardData, getLinks, getContacts }      from './actions/common.actions'
 import {getLocale}           from './store/locale';
 import {getLocaleData}         from './locale-data';
 
@@ -25,7 +25,9 @@ const initialState = {
 };
 Moment.locale(localLang);
 export const {store} = configureStore(initialState);
-store.dispatch(loginWithToken());
+store.dispatch(fetchDashboardData());
+store.dispatch(getLinks());
+store.dispatch(getContacts());
 
 const jsx = (
   <Provider store={store}>

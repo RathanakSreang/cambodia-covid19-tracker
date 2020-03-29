@@ -3,9 +3,6 @@ import { connect } from 'react-redux';
 import { Router, Route, Switch } from 'react-router-dom';
 import {createBrowserHistory} from 'history';
 import styled from 'styled-components';
-import isEmpty from 'lodash/isEmpty';
-import filter from "lodash/filter";
-import includes from "lodash/includes";
 
 import LoadingPage from '../screens/LoadingPage';
 import NotFoundPage from '../screens/NotFoundPage';
@@ -17,9 +14,7 @@ const Container = styled.div``;
 
 @connect((store) => {
   return {
-    currentUser: store.currentUserReducers.user,
-    isOnboarding: store.currentUserReducers.isOnboarding,
-    isAuthenticated: !isEmpty(store.currentUserReducers.user),
+    isOnboarding: store.commonReducers.isOnboarding,
   };
 }, {})
 class AppRouter extends React.Component {
@@ -28,20 +23,17 @@ class AppRouter extends React.Component {
   }
 
   render() {
-    const {isOnboarding, currentUser} =  this.props;
+    const {isOnboarding} =  this.props;
     if(isOnboarding) {
       return(<LoadingPage/>)
     }
-
-    const allowRoutes = filter(pageRoutes, (r) => (
-      r.plublic || includes(r.allowRoles, currentUser.role)));
 
     return(
       <Router history={history}>
         <Container>
           <Switch>
             {
-              allowRoutes.map((route, index) => {
+              pageRoutes.map((route, index) => {
                 return (
                   <Route
                     key={index}

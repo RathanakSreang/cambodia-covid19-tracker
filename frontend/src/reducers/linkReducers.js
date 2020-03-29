@@ -1,16 +1,14 @@
 import { commonConstants } from '../constants';
 
 export default function reducer(state={
-    isFetching: false,
-    isOnline: false,
-    isNewVersion: false,
-    isOnboarding: true,
+    links: [],
   }, action) {
     switch(action.type) {
-      case (commonConstants.SYS_LOADING_COMPLETE): {
+      case (commonConstants.LINKS_LOADED): {
+        const {links} = action.payload;
         return {
           ...state,
-          isOnboarding: false
+          links: links,
         };
       }
 

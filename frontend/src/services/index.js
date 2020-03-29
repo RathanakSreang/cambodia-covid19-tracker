@@ -1,6 +1,6 @@
 import { defaultHeader } from './defaultHeader';
 import {createAxiosResponseInterceptor} from './createAxiosResponseInterceptor';
-export * from './user.service';
+export * from './common.service';
 
 defaultHeader();
 createAxiosResponseInterceptor();

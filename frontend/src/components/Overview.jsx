@@ -8,23 +8,31 @@ import {
   Row,
   Col,
 } from "shards-react";
+import isEmpty from "lodash/isEmpty";
 
 const Title = styled(CardTitle)`
   font-size: 1em;
 `;
 
-@connect(() => {
-  return {};
+@connect((store) => {
+  return {
+    summary: store.dashboardReducers.summary
+  };
 }, {})
 class Overview extends React.Component {
   render() {
+    const {summary} = this.props;
+    if(isEmpty(summary)) {
+      return(<div/>);
+    }
+
     return (
       <Row>
         <Col xs="6" md="3" className="mb-3">
           <Card className="p-0" theme="">
             <CardBody className="p-4 text-center">
               <Title className="text-danger">CONFIRMED</Title>
-              <h2 className="text-danger mb-0">103</h2>
+              <h2 className="text-danger mb-0">{summary.confirmed}</h2>
             </CardBody>
           </Card>
         </Col>
@@ -32,7 +40,7 @@ class Overview extends React.Component {
           <Card className="p-0">
             <CardBody className="p-4 text-center text-primary">
               <Title className="text-primary">ACTIVE</Title>
-              <h2 className="text-primary mb-0">103</h2>
+              <h2 className="text-primary mb-0">{summary.active}</h2>
             </CardBody>
           </Card>
         </Col>
@@ -40,7 +48,7 @@ class Overview extends React.Component {
           <Card className="p-0">
             <CardBody className="p-4 text-center">
               <Title className="text-success">RECOVERED</Title>
-              <h2 className="text-success mb-0">103</h2>
+              <h2 className="text-success mb-0">{summary.recovered}</h2>
             </CardBody>
           </Card>
         </Col>
@@ -48,7 +56,7 @@ class Overview extends React.Component {
           <Card className="p-0">
             <CardBody className="p-4 text-center">
               <Title>DEAD</Title>
-              <h2 className="mb-0">0</h2>
+              <h2 className="mb-0">{summary.dead}</h2>
             </CardBody>
           </Card>
         </Col>

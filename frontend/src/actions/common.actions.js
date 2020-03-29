@@ -1,18 +1,41 @@
-import Moment from 'moment';
-import { updateIntl } from 'react-intl-redux';
+import { commonConstants } from '../constants';
+import { commonService } from '../services';
 
-import {setLocale}         from '../store/locale';
-import {getLocaleData}         from '../locale-data';
-
-export function changeLanguage(lang) {
+export function fetchDashboardData(options) {
   return function(dispatch) {
-    if(lang === 'km' || lang === 'en') {
-      Moment.locale(lang);
-      dispatch(updateIntl({
-        locale: lang,
-        messages: getLocaleData(lang)
-      }));
-      setLocale(lang);
-    }
+    commonService.fetchDashboardData(options)
+      .then((response) => {
+        dispatch({type: commonConstants.DASHBOARD_LOADED, payload: response.data});
+        dispatch({type: commonConstants.SYS_LOADING_COMPLETE, payload: null});
+      })
+      .catch((err) => {
+        console.log(err);
+        dispatch({type: commonConstants.SYS_LOADING_COMPLETE, payload: null});
+      });
+
+  }
+}
+
+export function getLinks(options) {
+  return function(dispatch) {
+    commonService.getLinks(options)
+      .then((response) => {
+        dispatch({type: commonConstants.LINKS_LOADED, payload: response.data});
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+}
+
+export function getContacts(options) {
+  return function(dispatch) {
+    commonService.getContacts(options)
+      .then((response) => {
+        dispatch({type: commonConstants.CONTACTS_LOADED, payload: response.data});
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 }

@@ -1,16 +1,14 @@
 import { commonConstants } from '../constants';
 
 export default function reducer(state={
-    isFetching: false,
-    isOnline: false,
-    isNewVersion: false,
-    isOnboarding: true,
+    contacts: [],
   }, action) {
     switch(action.type) {
-      case (commonConstants.SYS_LOADING_COMPLETE): {
+      case (commonConstants.CONTACTS_LOADED): {
+        const {contacts} = action.payload;
         return {
           ...state,
-          isOnboarding: false
+          contacts: contacts,
         };
       }
 
