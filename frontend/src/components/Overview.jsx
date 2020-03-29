@@ -1,0 +1,60 @@
+import React from 'react';
+import { connect } from 'react-redux';
+import styled from 'styled-components';
+import {
+  Card,
+  CardTitle,
+  CardBody,
+  Row,
+  Col,
+} from "shards-react";
+
+const Title = styled(CardTitle)`
+  font-size: 1em;
+`;
+
+@connect(() => {
+  return {};
+}, {})
+class Overview extends React.Component {
+  render() {
+    return (
+      <Row>
+        <Col xs="6" md="3" className="mb-3">
+          <Card className="p-0" theme="">
+            <CardBody className="p-4 text-center">
+              <Title className="text-danger">CONFIRMED</Title>
+              <h2 className="text-danger mb-0">103</h2>
+            </CardBody>
+          </Card>
+        </Col>
+        <Col xs="6" md="3" className="mb-3">
+          <Card className="p-0">
+            <CardBody className="p-4 text-center text-primary">
+              <Title className="text-primary">ACTIVE</Title>
+              <h2 className="text-primary mb-0">103</h2>
+            </CardBody>
+          </Card>
+        </Col>
+        <Col xs="6" md="3" className="mb-3">
+          <Card className="p-0">
+            <CardBody className="p-4 text-center">
+              <Title className="text-success">RECOVERED</Title>
+              <h2 className="text-success mb-0">103</h2>
+            </CardBody>
+          </Card>
+        </Col>
+        <Col xs="6" md="3" className="mb-3">
+          <Card className="p-0">
+            <CardBody className="p-4 text-center">
+              <Title>DEAD</Title>
+              <h2 className="mb-0">0</h2>
+            </CardBody>
+          </Card>
+        </Col>
+      </Row>
+    );
+  }
+}
+
+export default Overview;
