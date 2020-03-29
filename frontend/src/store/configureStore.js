@@ -9,6 +9,7 @@ import dialogReducers from '../reducers/dialogReducers';
 import dashboardReducers from '../reducers/dashboardReducers';
 import linkReducers from '../reducers/linkReducers';
 import contactReducers from '../reducers/contactReducers';
+import newsReducers from '../reducers/newsReducers';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const middleware = [thunk, batch];
@@ -20,6 +21,7 @@ const appReducer = combineReducers({
   dashboardReducers,
   linkReducers,
   contactReducers,
+  newsReducers,
   form: formReducer,
   intl: intlReducer,
 });

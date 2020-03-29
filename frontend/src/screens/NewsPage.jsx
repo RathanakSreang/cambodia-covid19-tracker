@@ -2,13 +2,20 @@ import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
+import { fetchNewsList }      from './../actions/news.actions'
 const Container = styled.div`
 `;
 
-@connect(() => {
-  return {};
-}, {})
+@connect((store) => {
+  return {
+    newsList: store.newsReducers.newsList
+  };
+}, {fetchNewsList})
 class NewsPage extends React.Component {
+  componentDidMount = () => {
+    this.props.fetchNewsList();
+  }
+
   render() {
     return (
       <Container className="container bg-white">
