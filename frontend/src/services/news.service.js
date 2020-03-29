@@ -11,5 +11,5 @@ function fetchNewsList(options) {
 }
 
 function fetchNewsDetail(id) {
-  return axios.get("/v1/news" + id);
+  return axios.get("/v1/news_detail" + id);
 }

@@ -39,5 +39,18 @@ module Api::V1
         {name: "បន្ទាយមានជ័យ", data: [{text: "016 46 62 92", type: "phone"}, {text: "https://www.mohfw.gov.in/coronvavirushelplinenumber.pdf", type: "link"}]}
       ]}
     end
+
+    def news_list
+      render json: {news_list: [
+        {id: "1234", title: "បន្ទាយមានជ័យ", description: "This is the description"},
+        {id: "1234", title: "បន្ទាយមានជ័យ", description: "This is the description"},
+        {id: "1234", title: "បន្ទាយមានជ័យ", description: "This is the description"},
+        {id: "1234", title: "បន្ទាយមានជ័យ", description: "This is the description"}
+      ]}
+    end
+
+    def news_detail
+      render json: {news_detail: []}
+    end
   end
 end
