@@ -45,7 +45,6 @@ GEM
     arel (9.0.0)
     bootsnap (1.4.6)
       msgpack (~> 1.0)
-    bson (4.8.2)
     builder (3.2.4)
     byebug (11.1.1)
     coderay (1.1.2)
@@ -57,18 +56,6 @@ GEM
       activesupport (>= 4.2.0)
     i18n (1.8.2)
       concurrent-ruby (~> 1.0)
-    kaminari (1.2.0)
-      activesupport (>= 4.1.0)
-      kaminari-actionview (= 1.2.0)
-      kaminari-activerecord (= 1.2.0)
-      kaminari-core (= 1.2.0)
-    kaminari-actionview (1.2.0)
-      actionview
-      kaminari-core (= 1.2.0)
-    kaminari-activerecord (1.2.0)
-      activerecord
-      kaminari-core (= 1.2.0)
-    kaminari-core (1.2.0)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -90,11 +77,6 @@ GEM
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     minitest (5.14.0)
-    mongo (2.11.4)
-      bson (>= 4.4.2, < 5.0.0)
-    mongoid (7.0.6)
-      activemodel (>= 5.1, < 6.1)
-      mongo (>= 2.7.0, < 3.0.0)
     msgpack (1.3.3)
     nio4r (2.5.2)
     nokogiri (1.10.9)
@@ -140,6 +122,9 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    redis (4.1.3)
+    redis-namespace (1.7.0)
+      redis (>= 3.0.4)
     request_store (1.5.0)
       rack (>= 1.4)
     ruby_dep (1.5.0)
@@ -168,15 +153,15 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (>= 1.1.0)
   byebug
-  kaminari
   listen (>= 3.0.5, < 3.2)
   lograge
-  mongoid (~> 7.0.5)
   pry-rails
   puma (~> 3.11)
   rack-attack
   rack-cors
   rails (~> 5.2.4)
+  redis (~> 4.0)
+  redis-namespace
   spring
   spring-watcher-listen (~> 2.0.0)
   tzinfo-data

@@ -22,3 +22,6 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+https://airtable.com/tblpdgysTauetGUvj/viwmmMnIf4moI3JOf?blocks=show
+
+Database: https://airtable.com/shr9ta8lqYMyuLp3O
