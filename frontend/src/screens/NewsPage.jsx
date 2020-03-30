@@ -4,12 +4,14 @@ import styled from 'styled-components';
 import isEmpty from "lodash/isEmpty";
 
 import { fetchNewsList }      from './../actions/news.actions'
+import NoRecord from "./../components/NoRecord";
 const Container = styled.div`
 `;
 
 @connect((store) => {
   return {
-    newsList: store.newsReducers.newsList
+    newsList: store.newsReducers.newsList,
+    isFetching: store.newsReducers.isFetching
   };
 }, {fetchNewsList})
 class NewsPage extends React.Component {
@@ -22,9 +24,9 @@ class NewsPage extends React.Component {
   }
 
   render() {
-    const {newsList} = this.props;
+    const {newsList, isFetching} = this.props;
     if(isEmpty(newsList)) {
-      return(<div/>);
+      return(<NoRecord isFetching={isFetching}/>);
     }
 
     return (

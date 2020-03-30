@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 import isEmpty from "lodash/isEmpty";
 
+import NoRecord from "./../components/NoRecord";
 const Container = styled.div`
 `;
 
@@ -15,7 +16,7 @@ class LinksPage extends React.Component {
   render() {
     const {links} = this.props;
     if(isEmpty(links)) {
-      return(<div/>);
+      return(<NoRecord />);
     }
 
     return (

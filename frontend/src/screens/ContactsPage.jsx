@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 import isEmpty from "lodash/isEmpty";
 
+import NoRecord from "./../components/NoRecord";
 const Container = styled.div`
 `;
 
@@ -32,7 +33,7 @@ class ContactsPage extends React.Component {
   render() {
     const {contacts} = this.props;
     if(isEmpty(contacts)) {
-      return(<div/>);
+      return(<NoRecord/>);
     }
     return (
       <Container className="container bg-white">

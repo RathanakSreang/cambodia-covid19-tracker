@@ -10,7 +10,7 @@ gem "redis-namespace"
 gem 'rack-cors'
 gem 'rack-attack'
 gem "lograge"
-
+gem 'dotenv-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password

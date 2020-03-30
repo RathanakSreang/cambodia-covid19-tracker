@@ -20,3 +20,4 @@
 /config/master.key
 /config/mongoid.yml
 config/mongoid.yml
+.env

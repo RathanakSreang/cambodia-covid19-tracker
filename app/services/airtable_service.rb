@@ -6,8 +6,8 @@ class AirtableService
   attr_accessor :api_key, :app_key
 
   def initialize
-    @api_key = "keyqIXbr3R03yJpaV"#ENV["API_KEY"]
-    @app_key = "app9SLiAn993RqE22"#ENV["API_KEY"]
+    @api_key = ENV["AIR_TABLE_API_KEY"]
+    @app_key = ENV["AIR_TABLE_APP_KEY"]
   end
 
   def load_cases_records
@@ -36,7 +36,7 @@ class AirtableService
     resp = get_request(url, request_headers)
     # save to redis
     $redis.set(key, resp.body)
-    $redis.expire(key, 10.minutes)
+    $redis.expire(key, 5.minutes)
 
     parse_to_json resp.body
   end

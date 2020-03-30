@@ -14,6 +14,7 @@ module Api::V1
 
     def news_list
       render json: airtable_service.load_news_list.to_json
+      # render json: {news_list: []}
     end
 
     def news_detail
