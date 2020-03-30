@@ -5,11 +5,16 @@ import isEmpty from "lodash/isEmpty";
 
 import NoRecord from "./../components/NoRecord";
 const Container = styled.div`
+  overflow: auto;
+  max-width: 800px;
+  justify-content: center;
+  width: 100%;
 `;
 
 @connect((store) => {
   return {
-    contacts: store.contactReducers.contacts
+    contacts: store.contactReducers.contacts,
+    isFetching: store.contactReducers.isFetching
   };
 }, {})
 class ContactsPage extends React.Component {
@@ -31,9 +36,9 @@ class ContactsPage extends React.Component {
     );
   }
   render() {
-    const {contacts} = this.props;
+    const {contacts, isFetching} = this.props;
     if(isEmpty(contacts)) {
-      return(<NoRecord/>);
+      return(<NoRecord isFetching={isFetching} className="bg-white"/>);
     }
     return (
       <Container className="container bg-white">

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { FormattedMessage } from 'react-intl';
 
 import loader from '../images/oval.svg';
 const Container = styled.div`
@@ -11,12 +12,12 @@ const Container = styled.div`
 
 class NoRecord extends React.Component {
   render() {
-    const {isFetching} = this.props;
+    const {isFetching, className} = this.props;
     return (
-      <Container className="container bg-white">
+      <Container className={`${className} container`}>
         {
           !isFetching &&
-          <h4>No Record</h4>
+          <h4><FormattedMessage id="app.no_records" defaultMessage="No Record" /></h4>
         }
         {
           isFetching &&

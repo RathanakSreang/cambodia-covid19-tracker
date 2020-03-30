@@ -1,7 +1,7 @@
 import cookie from 'js-cookie';
 
 export function getLocale() {
-  return 'en';//cookie.get('locale') || 'en';
+  return cookie.get('locale') || 'en';
 }
 
 export function setLocale(lang) {

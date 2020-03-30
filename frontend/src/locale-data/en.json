@@ -1,3 +1,25 @@
 {
-  "app.greeting": "Hello World!"
+  "app.greeting": "Hello World!",
+  "errors.oop": "OOP!",
+  "errors.404": "404",
+  "errors.page_not_found_des": "The page you were looking for doesn't exist.",
+  "links.go_home": "Go home",
+
+  "label.province": "Province",
+  "label.confirmed": "Confirmed",
+  "label.active": "Active",
+  "label.recovered": "Recovered",
+  "label.dead": "Dead",
+
+  "case.confirmed": "CONFIRMED",
+  "case.active": "ACTIVE",
+  "case.recovered": "RECOVERED",
+  "case.dead": "DEAD",
+
+  "app.no_records": "No Record",
+  "app.contacts": "Contacts",
+  "app.links": "Links",
+  "app.news": "News",
+  "app.home": "Home",
+  "app.updated_at": "Updated "
 }

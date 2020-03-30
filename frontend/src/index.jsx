@@ -15,7 +15,12 @@ import { fetchDashboardData, getLinks, getContacts }      from './actions/common
 import {getLocale}           from './store/locale';
 import {getLocaleData}         from './locale-data';
 
-const localLang = getLocale() || 'en';
+import '@formatjs/intl-pluralrules/polyfill';
+import '@formatjs/intl-relativetimeformat/polyfill';
+import '@formatjs/intl-relativetimeformat/dist/locale-data/km';
+import '@formatjs/intl-relativetimeformat/dist/locale-data/en';
+
+const localLang = getLocale();
 const initialState = {
   intl: {
     defaultLocale: 'en',

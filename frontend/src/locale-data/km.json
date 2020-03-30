@@ -1,3 +1,25 @@
 {
-  "app.greeting": "Hello World!"
+  "app.greeting": "Hello World!",
+  "errors.oop": "OOP!",
+  "errors.404": "404",
+  "errors.page_not_found_des": "ទំព័រដែលអ្នកកំពុងរកមិនមានទេ។",
+  "links.go_home": "ទៅទំព័រដើម",
+
+  "label.province": "ខេត្/ក្រុង",
+  "label.confirmed": "ករណីឆ្លងជំងឺ",
+  "label.active": "កំពុងផ្ទុកជំងឺ",
+  "label.recovered": "ជាសះស្បើយ",
+  "label.dead": "ស្លាប់",
+
+  "case.confirmed": "ករណីឆ្លងជំងឺ",
+  "case.active": "កំពុងផ្ទុកជំងឺ",
+  "case.recovered": "ជាសះស្បើយ",
+  "case.dead": "ស្លាប់",
+
+  "app.no_records": "គ្មាន​ទិន្នន័យ",
+  "app.contacts": "ទាក់ទង",
+  "app.links": "តំណ",
+  "app.news": "ព័ត៌មាន",
+  "app.home": "ទំព័រដើម",
+  "app.updated_at": "បច្ចុប្បន្នភាព "
 }

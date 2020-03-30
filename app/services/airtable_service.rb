@@ -37,6 +37,7 @@ class AirtableService
     # save to redis
     $redis.set(key, resp.body)
     $redis.expire(key, 5.minutes)
+    $redis.set("last_fetch_at", DateTime.current)
 
     parse_to_json resp.body
   end

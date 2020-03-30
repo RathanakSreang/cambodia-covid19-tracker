@@ -8,6 +8,7 @@ import RestoreIcon from '@material-ui/icons/Restore';
 import ContactPhoneIcon from '@material-ui/icons/ContactPhone';
 import LinkIcon from '@material-ui/icons/Link';
 import { matchPath } from 'react-router-dom';
+import { FormattedMessage } from 'react-intl';
 
 import { history } from '../routers/AppRouter';
 const styles = () => ({
@@ -74,11 +75,14 @@ class Footer extends React.Component {
     const {page} = this.state;
     return (
       <BottomNavigation value={page} onChange={this.handleChange} className={classes.root}>
-        <BottomNavigationAction label="Home" value="home" icon={<HomeIcon />} className=""/>
-        <BottomNavigationAction label="News"
+        <BottomNavigationAction label={<FormattedMessage id="app.home" defaultMessage="Home" />}
+          value="home" icon={<HomeIcon />} className=""/>
+        <BottomNavigationAction label={<FormattedMessage id="app.news" defaultMessage="News" />}
           value="news" icon={<RestoreIcon />} />
-        <BottomNavigationAction label="Links" value="links" icon={<LinkIcon />} className=""/>
-        <BottomNavigationAction label="Contacts" value="contacts" icon={<ContactPhoneIcon />} className=""/>
+        <BottomNavigationAction label={<FormattedMessage id="app.links" defaultMessage="Links" />}
+          value="links" icon={<LinkIcon />} className=""/>
+        <BottomNavigationAction label={<FormattedMessage id="app.contacts" defaultMessage="Contacts" />}
+          value="contacts" icon={<ContactPhoneIcon />} className=""/>
       </BottomNavigation>
     );
   }

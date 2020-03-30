@@ -5,18 +5,23 @@ import isEmpty from "lodash/isEmpty";
 
 import NoRecord from "./../components/NoRecord";
 const Container = styled.div`
+  overflow: auto;
+  max-width: 800px;
+  justify-content: center;
+  width: 100%;
 `;
 
 @connect((store) => {
   return {
-    links: store.linkReducers.links
+    links: store.linkReducers.links,
+    isFetching: store.linkReducers.isFetching
   };
 }, {})
 class LinksPage extends React.Component {
   render() {
-    const {links} = this.props;
+    const {links, isFetching} = this.props;
     if(isEmpty(links)) {
-      return(<NoRecord />);
+      return(<NoRecord isFetching={isFetching} className="bg-white"/>);
     }
 
     return (

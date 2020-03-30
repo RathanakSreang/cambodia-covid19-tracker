@@ -2,10 +2,16 @@ import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import isEmpty from "lodash/isEmpty";
+import LinesEllipsis from 'react-lines-ellipsis';
 
 import { fetchNewsList }      from './../actions/news.actions'
 import NoRecord from "./../components/NoRecord";
+import NewsDetailDrawer from "./../components/NewsDetailDrawer";
 const Container = styled.div`
+  overflow: auto;
+  max-width: 800px;
+  justify-content: center;
+  width: 100%;
 `;
 
 @connect((store) => {
@@ -26,7 +32,7 @@ class NewsPage extends React.Component {
   render() {
     const {newsList, isFetching} = this.props;
     if(isEmpty(newsList)) {
-      return(<NoRecord isFetching={isFetching}/>);
+      return(<NoRecord isFetching={isFetching} className="bg-white"/>);
     }
 
     return (
@@ -35,10 +41,19 @@ class NewsPage extends React.Component {
           newsList.map((news, index)=>(
             <div className="cursor-pointer p-3 border rounded mt-3 text-break" key={index} onClick={()=> this.handleClick(news)}>
               <h5 className="mb-1">{news.title}</h5>
-              <p className="mb-1">{news.description}</p>
+              <div className="mb-1">
+                <LinesEllipsis
+                  text={news.description}
+                  maxLine='2'
+                  ellipsis='...'
+                  trimRight
+                  basedOn='letters'
+                />
+              </div>
             </div>
           ))
         }
+        <NewsDetailDrawer/>
       </Container>
     );
   }

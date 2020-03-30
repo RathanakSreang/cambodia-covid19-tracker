@@ -1,5 +1,5 @@
 class Dashboard
-  attr_accessor :summary, :provinces
+  attr_accessor :summary, :provinces, :last_fetch_at
 
   def initialize(response)
     @provinces = []
@@ -17,12 +17,14 @@ class Dashboard
     end
 
     @summary = {confirmed: confirmed, active: active, recovered: recovered, dead: dead}
+    @last_fetch_at = $redis.get("last_fetch_at")
   end
 
   def to_json
     {
       summary: summary,
       provinces: provinces,
+      last_fetch_at: last_fetch_at
     }
   end
 end

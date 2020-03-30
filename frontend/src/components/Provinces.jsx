@@ -10,13 +10,14 @@ import TableSortLabel from '@material-ui/core/TableSortLabel';
 import Paper from '@material-ui/core/Paper';
 import isEmpty from "lodash/isEmpty";
 import orderBy from "lodash/orderBy";
+import { FormattedMessage } from 'react-intl';
 
 const headCells = [
-  { id: 'name', numeric: false, className: "", label: 'Province' },
-  { id: 'confirmed', numeric: true, className: "text-danger", label: 'Confirmed' },
-  { id: 'active', numeric: true, className: "text-primary", label: 'Active' },
-  { id: 'recovered', numeric: true, className: "text-success", label: 'Recovered' },
-  { id: 'dead', numeric: true, className: "", label: 'Dead' },
+  { id: 'province', numeric: false, className: ""},
+  { id: 'confirmed', numeric: true, className: "text-danger"},
+  { id: 'active', numeric: true, className: "text-primary"},
+  { id: 'recovered', numeric: true, className: "text-success"},
+  { id: 'dead', numeric: true, className: ""},
 ];
 
 function EnhancedTableHead(props) {
@@ -41,7 +42,7 @@ function EnhancedTableHead(props) {
               onClick={createSortHandler(headCell.id)}
               className={headCell.className}
             >
-              {headCell.label}
+              <FormattedMessage id={`label.${headCell.id}`} defaultMessage="" />
               {orderField === headCell.id ? (
                 <span className="">
                   {order === 'desc' ? '' : ''}
@@ -58,7 +59,8 @@ function EnhancedTableHead(props) {
 
 @connect((store) => {
   return {
-    provinces: store.dashboardReducers.provinces
+    provinces: store.dashboardReducers.provinces,
+    locale: store.intl.locale
   };
 }, {})
 class Provinces extends React.Component {
@@ -73,14 +75,28 @@ class Provinces extends React.Component {
     this.setState({orderField: property});
   }
 
+  renderName(row) {
+    let {locale} = this.props;
+    if(locale === "en" && !isEmpty(row.province_en)) {
+      return row.province_en;
+    }
+
+    return row.province;
+  }
+
   render() {
-    let {provinces} = this.props;
+    let {provinces, locale} = this.props;
     const {orderField, order} = this.state;
     if(isEmpty(provinces)) {
       return(<div/>);
     }
 
-    provinces = orderBy(provinces, orderField, order);
+    if(locale === "en" && orderField === "province") {
+      provinces = orderBy(provinces, `${orderField}_en`, order);
+    } else {
+      provinces = orderBy(provinces, orderField, order);
+    }
+
 
     return (
       <TableContainer component={Paper}>
@@ -93,9 +109,9 @@ class Provinces extends React.Component {
           />
           <TableBody>
             {provinces.map(row => (
-              <TableRow key={row.name}>
+              <TableRow key={row.province}>
                 <TableCell component="th" scope="row">
-                  {row.name}
+                  {this.renderName(row)}
                 </TableCell>
                 <TableCell align="right" className="text-danger">{row.confirmed}</TableCell>
                 <TableCell align="right" className="text-primary">{row.active}</TableCell>
