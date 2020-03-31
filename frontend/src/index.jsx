@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { IntlProvider } from 'react-intl-redux';
+import { PersistGate } from 'redux-persist/lib/integration/react';
 import Moment from 'moment';
 
 import AppRouter from './routers/AppRouter';
@@ -20,6 +21,8 @@ import '@formatjs/intl-relativetimeformat/polyfill';
 import '@formatjs/intl-relativetimeformat/dist/locale-data/km';
 import '@formatjs/intl-relativetimeformat/dist/locale-data/en';
 
+import LoadingPage from './screens/LoadingPage';
+
 const localLang = getLocale();
 const initialState = {
   intl: {
@@ -29,16 +32,24 @@ const initialState = {
   },
 };
 Moment.locale(localLang);
-export const {store} = configureStore(initialState);
+export const {store, persistor} = configureStore(initialState);
 store.dispatch(fetchDashboardData());
 store.dispatch(getLinks());
 store.dispatch(getContacts());
 
+setInterval(function() {
+  store.dispatch(fetchDashboardData());
+  store.dispatch(getLinks());
+  store.dispatch(getContacts());
+}, 300000); //pull every 5 minutes
+
 const jsx = (
   <Provider store={store}>
-    <IntlProvider>
-      <AppRouter />
-    </IntlProvider>
+    <PersistGate loading={<LoadingPage />} persistor={persistor}>
+      <IntlProvider>
+        <AppRouter />
+      </IntlProvider>
+    </PersistGate>
   </Provider>
 );
 

@@ -3,6 +3,9 @@ import { batch, batching } from 'redux-batch-middleware';
 import thunk from 'redux-thunk';
 import { reducer as formReducer } from 'redux-form';
 import { intlReducer } from 'react-intl-redux';
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
 
 import commonReducers from '../reducers/commonReducers';
 import dialogReducers from '../reducers/dialogReducers';
@@ -26,7 +29,15 @@ const appReducer = combineReducers({
   intl: intlReducer,
 });
 
+const persistConfig = {
+ key: 'root',
+ storage: storage,
+ stateReconciler: autoMergeLevel2 // see "Merge Process" section for details.
+};
+
+const pReducer = persistReducer(persistConfig, batching(appReducer));
 export default (initialState) => {
-  let store = createStore(batching(appReducer), initialState, enhancers);
-  return { store }
+  const store = createStore(pReducer, initialState, enhancers);
+  const persistor = persistStore(store);
+  return { store, persistor }
 };

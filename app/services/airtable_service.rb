@@ -11,7 +11,7 @@ class AirtableService
   end
 
   def load_cases_records
-    Dashboard.new(fetch_data("Cases%20Recorded"))
+    CaseRecord.new(fetch_data("Cases%20Recorded"))
   end
 
   def load_usefull_links

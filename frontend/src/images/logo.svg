@@ -1,14 +1,164 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 48.1 (47250) - http://www.bohemiancoding.com/sketch -->
-    <title>Logo Icon</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Shards---Dashboard---Overview-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-118.000000, -54.000000)">
-        <g id="Sidebar" fill="#007BFF">
-            <g id="Logo" transform="translate(118.000000, 54.000000)">
-                <path d="M21.9333011,30.314967 L18.0691155,18.8037699 L24.5642017,14.9387788 L28.0175608,19.8727243 L21.9333011,30.314967 Z M19.4087321,32.609151 L12.6663444,21.1801192 L16.4902529,19.8646689 L20.3133559,31.0463992 L19.4087321,32.609151 Z M20.2311906,7.39084904 L23.8488803,13.5991622 L12.1733527,19.8066699 L20.2311906,7.39084904 Z M20,0 C8.95440632,0 0,8.95440632 0,20 C0,31.0455937 8.95440632,40 20,40 C31.0447881,40 39.9991945,31.0455937 39.9991945,20 C39.9991945,8.95440632 31.0447881,0 20,0 L20,0 Z" id="Logo-Icon"></path>
-            </g>
-        </g>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="900"
+   height="900"
+   viewBox="0 0 238.12477 238.12499"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.4 (unknown)"
+   sodipodi:docname="logo.svg"
+   style="shape-rendering:crispEdges"
+   inkscape:export-filename="/home/rathanak/MyRubyonRails/dating_app_rail/frontend/src/images/ku_logo.192.png"
+   inkscape:export-xdpi="20.48"
+   inkscape:export-ydpi="20.48">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.35"
+     inkscape:cx="-696.86998"
+     inkscape:cy="-78.48297"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="px"
+     width="10in"
+     height="296mm"
+     inkscape:pagecheckerboard="false"
+     inkscape:showpageshadow="true"
+     borderlayer="false"
+     inkscape:window-width="1632"
+     inkscape:window-height="1029"
+     inkscape:window-x="48"
+     inkscape:window-y="21"
+     inkscape:window-maximized="1"
+     showborder="true" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-58.875005)">
+    <g
+       id="g959"
+       transform="matrix(1.0816228,0,0,0.97726571,-372.66563,-24.260862)"
+       style="fill:#6059f6;fill-opacity:1;stroke-width:0.25734648">
+      <g
+         id="g900"
+         style="fill:#6059f6;fill-opacity:1;stroke-width:0.25734648">
+        <g
+           id="g898"
+           style="fill:#ff0000;fill-opacity:1;stroke-width:0.18319219"
+           transform="matrix(1.2936178,0,0,1.5255153,542.70169,138.33335)" />
+      </g>
+      <g
+         id="g902"
+         style="fill:#6059f6;fill-opacity:1;stroke-width:0.25734648" />
+      <g
+         id="g904"
+         style="fill:#6059f6;fill-opacity:1;stroke-width:0.25734648" />
+      <g
+         id="g906"
+         style="fill:#6059f6;fill-opacity:1;stroke-width:0.25734648" />
+      <g
+         id="g908"
+         style="fill:#6059f6;fill-opacity:1;stroke-width:0.25734648" />
+      <g
+         id="g910"
+         style="fill:#6059f6;fill-opacity:1;stroke-width:0.25734648" />
+      <g
+         id="g912"
+         style="fill:#6059f6;fill-opacity:1;stroke-width:0.25734648" />
+      <g
+         id="g914"
+         style="fill:#6059f6;fill-opacity:1;stroke-width:0.25734648" />
+      <g
+         id="g916"
+         style="fill:#6059f6;fill-opacity:1;stroke-width:0.25734648" />
+      <g
+         id="g918"
+         style="fill:#6059f6;fill-opacity:1;stroke-width:0.25734648" />
+      <g
+         id="g920"
+         style="fill:#6059f6;fill-opacity:1;stroke-width:0.25734648" />
+      <g
+         id="g922"
+         style="fill:#6059f6;fill-opacity:1;stroke-width:0.25734648" />
+      <g
+         id="g924"
+         style="fill:#6059f6;fill-opacity:1;stroke-width:0.25734648" />
+      <g
+         id="g926"
+         style="fill:#6059f6;fill-opacity:1;stroke-width:0.25734648" />
+      <g
+         id="g928"
+         style="fill:#6059f6;fill-opacity:1;stroke-width:0.25734648" />
+      <g
+         id="g930"
+         style="fill:#6059f6;fill-opacity:1;stroke-width:0.25734648" />
     </g>
+    <rect
+       style="opacity:1;fill:#007100;fill-opacity:1;stroke-width:0.26458332"
+       id="rect4522"
+       width="211.14293"
+       height="209.53931"
+       x="12.176201"
+       y="72.104088"
+       ry="15.926938"
+       rx="0"
+       inkscape:export-xdpi="20.607111"
+       inkscape:export-ydpi="20.607111" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:231.83699036px;line-height:1.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:5.17553616"
+       x="129.2016"
+       y="240.64842"
+       id="text4520"
+       transform="scale(0.87118767,1.1478583)"
+       inkscape:export-xdpi="20.607111"
+       inkscape:export-ydpi="20.607111"><tspan
+         sodipodi:role="line"
+         id="tspan4518"
+         x="129.2016"
+         y="240.64842"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Khmer OS Freehand';-inkscape-font-specification:'Khmer OS Freehand';text-align:center;text-anchor:middle;fill:#ffffff;stroke-width:5.17553616">ក</tspan></text>
+    <g
+       aria-label="ូ"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.19502077"
+       id="text5417"
+       transform="matrix(1.3566931,0,0,1.3566931,-112.46957,-114.26128)"
+       inkscape:export-xdpi="20.607111"
+       inkscape:export-ydpi="20.607111">
+      <path
+         d="m 165.40656,254.93418 q 2.1448,0 3.18657,1.59329 1.10305,1.53201 1.10305,4.6573 0,3.00272 -2.38993,6.1893 -1.22561,1.59327 -3.61553,4.04448 -2.38993,2.5125 -6.25059,6.00546 0,2.63505 0.67409,3.92193 0.67408,1.28689 2.02225,1.28689 6.00546,-2.14481 10.72403,-6.92466 4.71858,-4.71857 8.15027,-12.13348 1.71584,-4.35089 4.04448,-6.49569 2.32866,-2.14482 5.27011,-2.14482 2.81888,0 2.81888,1.53201 0,1.40944 -0.85792,2.26737 -0.85793,0.73536 -3.00273,6.31185 -3.79937,9.68228 -10.60148,15.62645 -6.74081,5.8829 -16.54564,8.02771 -5.94418,0 -8.94691,-2.81889 -2.94145,-2.81889 -2.94145,-8.45667 0,-4.65729 2.81888,-6.1893 6.25059,-2.63504 9.37588,-4.90241 3.12529,-2.20608 3.12529,-4.0445 0,-1.2256 -3.06402,-1.2256 0,-3.06401 1.22561,-4.59601 1.2256,-1.53201 3.67681,-1.53201 z"
+         style="font-size:105.83333588px;fill:#ffffff;stroke-width:0.19502077"
+         id="path5421"
+         inkscape:connector-curvature="0" />
+    </g>
+  </g>
 </svg>

@@ -1,4 +1,4 @@
-class Dashboard
+class CaseRecord
   attr_accessor :summary, :provinces, :last_fetch_at
 
   def initialize(response)

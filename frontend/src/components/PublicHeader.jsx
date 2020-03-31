@@ -10,7 +10,7 @@ import {
   DropdownItem
 } from "shards-react";
 
-import logo from '../images/logo.svg';
+import logo from '../images/full_logo.svg';
 import kh_flag from '../images/kh_flag.svg';
 import gb_flag from '../images/gb_flag.svg';
 import { changeLanguage } from '../actions/common.actions';
