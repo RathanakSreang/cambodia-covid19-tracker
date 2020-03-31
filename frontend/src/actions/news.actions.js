@@ -14,3 +14,9 @@ export function fetchNewsList(options) {
       });
   }
 }
+
+export function setNewsDetail(news) {
+  return function(dispatch) {
+    dispatch({type: newsConstants.SET_NEWS_DETAIL, payload: {news: news}});
+  }
+}

@@ -29,6 +29,14 @@ export default function reducer(state={
         };
       }
 
+      case (newsConstants.SET_NEWS_DETAIL): {
+        const {news} = action.payload;
+        return {
+          ...state,
+          newsDetail: news,
+        };
+      }
+
       default:
         return state;
     }
