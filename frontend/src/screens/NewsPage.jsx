@@ -2,11 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import isEmpty from "lodash/isEmpty";
-import LinesEllipsis from 'react-lines-ellipsis';
 
 import { fetchNewsList }      from './../actions/news.actions'
 import NoRecord from "./../components/NoRecord";
 import NewsDetailDrawer from "./../components/NewsDetailDrawer";
+import News from "./../components/News";
 const Container = styled.div`
   overflow: auto;
   max-width: 800px;
@@ -25,10 +25,6 @@ class NewsPage extends React.Component {
     this.props.fetchNewsList();
   }
 
-  handleClick = (news) => {
-    console.log(news);
-  }
-
   render() {
     const {newsList, isFetching} = this.props;
     if(isEmpty(newsList)) {
@@ -39,18 +35,7 @@ class NewsPage extends React.Component {
       <Container className="container bg-white">
         {
           newsList.map((news, index)=>(
-            <div className="cursor-pointer p-3 border rounded mt-3 text-break" key={index} onClick={()=> this.handleClick(news)}>
-              <h5 className="mb-1">{news.title}</h5>
-              <div className="mb-1">
-                <LinesEllipsis
-                  text={news.description}
-                  maxLine='2'
-                  ellipsis='...'
-                  trimRight
-                  basedOn='letters'
-                />
-              </div>
-            </div>
+            <News news={news} key={index}/>
           ))
         }
         <NewsDetailDrawer/>
