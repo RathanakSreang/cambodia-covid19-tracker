@@ -19,7 +19,7 @@ const Container = styled.div``;
 }, {})
 class AppRouter extends React.Component {
   componentDidMount() {
-    document.title = "MOI";
+    document.title = "កូវីដ១៩ខ្មែរ";
   }
 
   render() {
