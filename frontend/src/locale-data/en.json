@@ -21,5 +21,6 @@
   "app.links": "Links",
   "app.news": "News",
   "app.home": "Home",
-  "app.updated_at": "Updated "
+  "app.updated_at": "Updated ",
+  "app.offline": "No Internet"
 }

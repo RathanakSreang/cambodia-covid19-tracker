@@ -6,6 +6,7 @@ import styled from 'styled-components';
 
 import LoadingPage from '../screens/LoadingPage';
 import NotFoundPage from '../screens/NotFoundPage';
+import OfflineAlert from "./../components/OfflineAlert";
 import pageRoutes from './pageRoutes';
 
 export const history = createBrowserHistory();
@@ -31,6 +32,7 @@ class AppRouter extends React.Component {
     return(
       <Router history={history}>
         <Container>
+          <OfflineAlert/>
           <Switch>
             {
               pageRoutes.map((route, index) => {
