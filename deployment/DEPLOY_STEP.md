@@ -1,0 +1,2 @@
+- install ruby: `rvm install ruby-2.5.1`
+- `gem install bundler:1.16.3`, if there any erro: `gem update --system`
