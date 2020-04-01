@@ -70,3 +70,26 @@ serviceWorker.register({
   onSuccess: function(args) {}
 });
 
+
+// TODO help me make it better
+let isTooSoon = true;
+window.addEventListener("beforeinstallprompt", function(e) {
+  if (isTooSoon) {
+    e.preventDefault(); // Prevents prompt display
+
+    // deferredPrompt = e;
+    //// Update UI notify the user they can install the PWA
+    // showInstallPromotion();
+
+    console.log('This is install app');
+    // Prompt later instead:
+    setTimeout(function() {
+      isTooSoon = false;
+      e.prompt(); // Throws if called more than once or default not prevented
+    }, 10000);
+  }
+});
+
+window.addEventListener('appinstalled', (evt) => {
+  console.log('App is installed');
+});
