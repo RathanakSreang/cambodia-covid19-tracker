@@ -1,0 +1,33 @@
+server {
+  listen 80 default_server;
+  root /home/deployer/production/cambodia-covid19-tracker/frontend/production;
+  server_name www.co19kh.info co19kh.info;
+  index index.html index.htm;
+
+  # CloudFlare
+  include /home/deployer/cloudflare/_include/cloudflare;
+  location / {
+    try_files $uri /index.html;
+  }
+}
+
+server {
+ listen [::]:443 ssl ipv6only=on;
+ listen 443 ssl;
+ server_name www.co19kh.info co19kh.info;
+ root /home/deployer/production/cambodia-covid19-tracker/frontend/production;
+ index index.html index.htm;
+
+ ssl_certificate /etc/letsencrypt/live/krim.com/fullchain.pem;
+ ssl_certificate_key /etc/letsencrypt/live/krim.com/privkey.pem;
+ include /etc/letsencrypt/options-ssl-nginx.conf;
+ ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+ access_log /var/log/nginx/krim.com.access.log;
+ error_log /var/log/nginx/krim.com.error.log;
+
+ # CloudFlare
+  include /home/deployer/cloudflare/_include/cloudflare;
+ location / {
+  try_files $uri /index.html;
+ }
+}
