@@ -19,6 +19,12 @@ export function changeLanguage(lang) {
   }
 }
 
+export function toggleInstallApp(options) {
+  return function(dispatch) {
+    dispatch({type: commonConstants.TOGGLE_INSTALL_APP_BTN, payload: options});
+  }
+}
+
 export function fetchDashboardData(options) {
   return function(dispatch) {
     dispatch({type: commonConstants.LOADING_DASHBOARD, payload: null});

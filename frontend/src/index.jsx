@@ -12,7 +12,7 @@ import "shards-ui/dist/css/shards.min.css";
 import './style/index.scss';
 // import 'react-image-lightbox/style.css';
 import * as serviceWorker from './serviceWorker';
-import { fetchDashboardData, getLinks, getContacts }      from './actions/common.actions'
+import { fetchDashboardData, getLinks, getContacts, toggleInstallApp }      from './actions/common.actions'
 import {getLocale}           from './store/locale';
 import {getLocaleData}         from './locale-data';
 
@@ -72,24 +72,23 @@ serviceWorker.register({
 
 
 // TODO help me make it better
-let isTooSoon = true;
-window.addEventListener("beforeinstallprompt", function(e) {
-  if (isTooSoon) {
-    e.preventDefault(); // Prevents prompt display
+window.addEventListener('beforeinstallprompt', (event) => {
+  console.log('👍', 'beforeinstallprompt');
+  // Stash the event so it can be triggered later.
+  window.deferredPrompt = event;
 
-    // deferredPrompt = e;
-    //// Update UI notify the user they can install the PWA
-    // showInstallPromotion();
-
-    console.log('This is install app');
-    // Prompt later instead:
-    setTimeout(function() {
-      isTooSoon = false;
-      e.prompt(); // Throws if called more than once or default not prevented
-    }, 10000);
-  }
+  // trigger install display
+  setTimeout(function() {
+    console.log('isShowInstallBtn')
+    if(window.deferredPrompt) {
+      store.dispatch(toggleInstallApp({show: true}));
+    }
+  }, 5000);
 });
 
 window.addEventListener('appinstalled', (evt) => {
-  console.log('App is installed');
+  // No need display install app
+  console.log('👍', 'appinstalled');
+  window.deferredPrompt = null;
+  store.dispatch(toggleInstallApp({show: false}));
 });

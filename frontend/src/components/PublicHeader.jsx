@@ -9,11 +9,14 @@ import {
   DropdownMenu,
   DropdownItem
 } from "shards-react";
+import Button from '@material-ui/core/Button';
+import AddIcon from '@material-ui/icons/Add';
+import { FormattedMessage } from 'react-intl';
 
 import logo from '../images/full_logo.svg';
 import kh_flag from '../images/kh_flag.svg';
 import gb_flag from '../images/gb_flag.svg';
-import { changeLanguage } from '../actions/common.actions';
+import { changeLanguage, toggleInstallApp } from '../actions/common.actions';
 const Header = styled.div`
   background: #FFF;
   background: transparent;
@@ -44,13 +47,15 @@ const LangFlag = styled.img`
 const RightNav = styled.div`
   display: flex;
   justify-content: flex-end;
+  align-items: center;
 `;
 
 @connect((store) => {
   return {
-    current_lang: store.intl.locale
+    current_lang: store.intl.locale,
+    isShowInstallBtn: store.commonReducers.isShowInstallBtn
   };
-}, {changeLanguage})
+}, {changeLanguage, toggleInstallApp})
 class PublicHeader extends React.Component {
   constructor(props) {
     super(props);
@@ -89,8 +94,26 @@ class PublicHeader extends React.Component {
     });
   }
 
+  handleInstall = () => {
+    const promptEvent = window.deferredPrompt;
+    if (!promptEvent) {
+      // The deferred prompt isn't available.
+      return;
+    }
+    // Show the install prompt.
+    promptEvent.prompt();
+    promptEvent.userChoice.then((result) => {
+      console.log('👍', 'userChoice', result);
+      // prompt() can only be called once.
+      window.deferredPrompt = null;
+      // Hide the install button.
+      this.props.toggleInstallApp({show: false});
+    });
+  }
+
   render() {
-    const {current_lang} = this.props;
+    const {current_lang, isShowInstallBtn} = this.props;
+    console.log(isShowInstallBtn)
     return (
       <Header>
         <GridContainer container spacing={0}
@@ -104,6 +127,18 @@ class PublicHeader extends React.Component {
           </Grid>
           <Grid item xs={8} sm={4}>
             <RightNav className="">
+              <div>
+                {
+                  isShowInstallBtn &&
+                  <Button variant="contained"
+                          color="primary"
+                          size="small"
+                          startIcon={<AddIcon/>}
+                          onClick={this.handleInstall}>
+                    <FormattedMessage id="app.install" defaultMessage="Install"/>
+                  </Button>
+                }
+              </div>
               <Dropdown open={this.state.open} toggle={this.toggle}>
                 <DropdownToggle tag="span">{this._renderFlag(current_lang, true)}</DropdownToggle>
                 <DropdownMenu right>
