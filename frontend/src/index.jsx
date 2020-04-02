@@ -75,6 +75,7 @@ serviceWorker.register({
 window.addEventListener('beforeinstallprompt', (event) => {
   console.log('👍', 'beforeinstallprompt');
   // Stash the event so it can be triggered later.
+  event.preventDefault();
   window.deferredPrompt = event;
 
   // trigger install display
