@@ -113,7 +113,6 @@ class PublicHeader extends React.Component {
 
   render() {
     const {current_lang, isShowInstallBtn} = this.props;
-    console.log(isShowInstallBtn)
     return (
       <Header>
         <GridContainer container spacing={0}
