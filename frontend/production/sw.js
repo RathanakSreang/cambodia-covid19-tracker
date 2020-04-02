@@ -1,8 +1,8 @@
-importScripts("/precache-manifest.98226417123eb8b1641d423ae28d6984.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
+importScripts("/precache-manifest.5de229b3bc90afe71d247fd26fac3868.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 workbox.precaching.precacheAndRoute(self.__precacheManifest);
 
-var staticCacheName = 'covid-static-1'; //TODO update this
+var staticCacheName = 'covid-static-2'; //TODO update this
 self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open(staticCacheName).then(function(cache) {
