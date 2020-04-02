@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import isEmpty from "lodash/isEmpty";
-import LinkIcon from '@material-ui/icons/Link';
 
 import NoRecord from "./../components/NoRecord";
 const Container = styled.div`
@@ -32,7 +31,6 @@ class LinksPage extends React.Component {
             <div className="p-3 border rounded mt-3 text-break" key={index}>
               <h5 className="mb-0">{link.title}</h5>
               <a href={link.link} target="_blank" rel="noopener noreferrer">
-                <LinkIcon/>
                 <span className="pl-1">{link.link}</span>
               </a>
             </div>
