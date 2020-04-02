@@ -10,33 +10,38 @@ You need to have:
 - redis install
 - Airtable account
 
+create `.env` inside project folder and fill:
+```
+  AIR_TABLE_API_KEY=
+  AIR_TABLE_APP_KEY=
+```
+
 ## Installation
 
 - API server:
   ```
-  cd cambodia-covid19-tracker
-  bundle install
+    cd cambodia-covid19-tracker
+    bundle install
   ```
 
 - Frontend:
   ```
-  cd cambodia-covid19-tracker/frontend
-  yarn
+    cd cambodia-covid19-tracker/frontend
+    yarn
   ```
 
 ## Development
 - API server:
   ```
-  cd cambodia-covid19-tracker
-  rails server
+    cd cambodia-covid19-tracker
+    rails server
   ```
 
 - Frontend:
   ```
-  cd cambodia-covid19-tracker/frontend
-  yarn start
+    cd cambodia-covid19-tracker/frontend
+    yarn start
   ```
-
 
 Now you can start add your code.
 
