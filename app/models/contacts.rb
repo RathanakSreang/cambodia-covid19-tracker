@@ -10,7 +10,7 @@ class Contacts
       data = contact["phones"].to_s.split(",").map do|phone|
         next unless phone.strip
 
-        {text: phone., type: "phone"}
+        {text: phone, type: "phone"}
       end.compact
       data += contact["links"].to_s.split(",").map do|link|
         next unless link.strip
