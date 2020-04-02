@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 import isEmpty from "lodash/isEmpty";
 import PhoneIcon from '@material-ui/icons/Phone';
+import LinkIcon from '@material-ui/icons/Link';
 
 import NoRecord from "./../components/NoRecord";
 const Container = styled.div`
@@ -30,8 +31,8 @@ class ContactsPage extends React.Component {
 
             if(elm.type === "link") {
               return(<div key={i}>
-                <PhoneIcon/>
-                <a href={elm.text} target="_blank" rel="noopener noreferrer">{elm.text}</a>
+                <LinkIcon/>
+                <span className="pl-1"><a href={elm.text} target="_blank" rel="noopener noreferrer">{elm.text}</a></span>
               </div>);
             }
 
