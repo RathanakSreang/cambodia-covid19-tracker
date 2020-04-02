@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import isEmpty from "lodash/isEmpty";
+import PhoneIcon from '@material-ui/icons/Phone';
 
 import NoRecord from "./../components/NoRecord";
 const Container = styled.div`
@@ -20,19 +21,29 @@ const Container = styled.div`
 class ContactsPage extends React.Component {
   renderContactList(contact) {
     return(
-      <ul>
+      <div>
         {
           contact.data.map((elm, i) => {
-            if(elm.type === "link") {
-              return(<li key={i}>
-                <a href={elm.text} target="_blank" rel="noopener noreferrer">{elm.text}</a>
-              </li>);
+            if(isEmpty(elm.text)) {
+              return null;
             }
 
-            return(<li key={i}>{elm.text}</li>);
+            if(elm.type === "link") {
+              return(<div key={i}>
+                <PhoneIcon/>
+                <a href={elm.text} target="_blank" rel="noopener noreferrer">{elm.text}</a>
+              </div>);
+            }
+
+            return(<div key={i} className="pt-2 pb-2">
+              <a href={`tel:${elm.text}`}>
+                <PhoneIcon/>
+                <span className="pl-1">{elm.text}</span>
+              </a>
+            </div>);
           })
         }
-      </ul>
+      </div>
     );
   }
   render() {

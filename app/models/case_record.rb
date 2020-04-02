@@ -3,20 +3,33 @@ class CaseRecord
 
   def initialize(response)
     @provinces = []
-    confirmed = 0
-    active = 0
-    recovered = 0
-    dead = 0
+    total_confirmed = 0
+    total_active = 0
+    total_recovered = 0
+    total_dead = 0
     response["records"].each do |record|
       province = record["fields"].transform_keys(&:downcase)
-      @provinces << province
-      confirmed += province["confirmed"].to_i
-      active += province["active"].to_i
-      recovered += province["recovered"].to_i
-      dead += province["dead"].to_i
+      confirmed = province["confirmed"].to_i
+      active = province["active"].to_i
+      recovered = province["recovered"].to_i
+      dead = province["dead"].to_i
+
+      total_confirmed += confirmed
+      total_active += active
+      total_recovered += recovered
+      total_dead += dead
+
+      @provinces << {
+        province_en: province["province_en"],
+        province: province["province"],
+        confirmed: confirmed,
+        active: active,
+        recovered: recovered,
+        dead: dead
+      }
     end
 
-    @summary = {confirmed: confirmed, active: active, recovered: recovered, dead: dead}
+    @summary = {confirmed: total_confirmed, active: total_active, recovered: total_recovered, dead: total_dead}
     @last_fetch_at = $redis.get("last_fetch_at")
   end
 

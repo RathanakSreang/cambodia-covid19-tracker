@@ -10,6 +10,7 @@ import TableSortLabel from '@material-ui/core/TableSortLabel';
 import Paper from '@material-ui/core/Paper';
 import isEmpty from "lodash/isEmpty";
 import orderBy from "lodash/orderBy";
+import filter from "lodash/filter";
 import { FormattedMessage } from 'react-intl';
 
 const headCells = [
@@ -91,6 +92,7 @@ class Provinces extends React.Component {
       return(<div/>);
     }
 
+    provinces = filter(provinces, (province) => {return province.confirmed > 0});
     if(locale === "en" && orderField === "province") {
       provinces = orderBy(provinces, `${orderField}_en`, order);
     } else {
