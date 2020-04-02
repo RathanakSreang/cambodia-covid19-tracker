@@ -16,7 +16,7 @@ const Container = styled.div`
 class OfflineAlert extends React.Component {
   render() {
     return (
-      <Offline polling={{url: "/favicon.ico"}}>
+      <Offline>
         <Container>
           <FormattedMessage id="app.offline" defaultMessage="No internet" />
         </Container>

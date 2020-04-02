@@ -84,7 +84,7 @@ window.addEventListener('beforeinstallprompt', (event) => {
     if(window.deferredPrompt) {
       store.dispatch(toggleInstallApp({show: true}));
     }
-  }, 5000);
+  }, 3000);
 });
 
 window.addEventListener('appinstalled', (evt) => {
