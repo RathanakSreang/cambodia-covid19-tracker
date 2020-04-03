@@ -26,3 +26,18 @@ button:focus {
   outline: 1px solid slategrey;
   border-radius: 5px;
 }
+
+.table-bg-confirmed {
+  background-color: rgba(220, 0, 78, 0.08)
+}
+
+.table-bg-recover {
+  background-color: rgba(23, 198, 113, 0.08)
+}
+
+.table-bg-dead {
+  background-color: rgba(0, 0, 0, 0.8);
+  .text-danger, .text-primary, .text-success, .text-province, .text-dead {
+    color: #FFF !important;
+  }
+}

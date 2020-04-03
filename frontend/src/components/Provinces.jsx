@@ -85,6 +85,26 @@ class Provinces extends React.Component {
     return row.province;
   }
 
+  renderNewCase(new_case) {
+    if(new_case && new_case > 0) {
+      return (<span>({new_case})</span>);
+    }
+
+    return null;
+  }
+
+  backgroundClass(row) {
+    if(row.new_confirmed && row.new_confirmed > 0) {
+      return "table-bg-confirmed";
+    } else if(row.new_recovered && row.new_recovered > 0) {
+      return "table-bg-recover";
+    } else if(row.new_dead && row.new_dead > 0) {
+      return "table-bg-dead";
+    }
+
+    return "";
+  }
+
   render() {
     let {provinces, locale} = this.props;
     const {orderField, order} = this.state;
@@ -99,7 +119,6 @@ class Provinces extends React.Component {
       provinces = orderBy(provinces, orderField, order);
     }
 
-
     return (
       <TableContainer component={Paper}>
         <Table aria-label="simple table">
@@ -111,14 +130,14 @@ class Provinces extends React.Component {
           />
           <TableBody>
             {provinces.map(row => (
-              <TableRow key={row.province}>
-                <TableCell component="th" scope="row">
+              <TableRow key={row.province} className={this.backgroundClass(row)}>
+                <TableCell component="th" scope="row" className="text-province">
                   {this.renderName(row)}
                 </TableCell>
-                <TableCell align="right" className="text-danger">{row.confirmed}</TableCell>
-                <TableCell align="right" className="text-primary">{row.active}</TableCell>
-                <TableCell align="right" className="text-success">{row.recovered}</TableCell>
-                <TableCell align="right">{row.dead}</TableCell>
+                <TableCell align="right" className="text-danger">{row.confirmed}{this.renderNewCase(row.new_confirmed)}</TableCell>
+                <TableCell align="right" className="text-primary">{row.active}{this.renderNewCase(0)}</TableCell>
+                <TableCell align="right" className="text-success">{row.recovered}{this.renderNewCase(row.new_recovered)}</TableCell>
+                <TableCell align="right" className="text-dead">{row.dead}{this.renderNewCase(row.new_dead)}</TableCell>
               </TableRow>
             ))}
           </TableBody>
