@@ -18,9 +18,15 @@ class CaseRecord
       recovered = province["recovered"].to_i
       dead = province["dead"].to_i
 
-      new_confirmed = province["new_confirmed"].to_i
-      new_recovered = province["new_recovered"].to_i
-      new_dead = province["new_dead"].to_i
+      new_confirmed = 0
+      new_recovered = 0
+      new_dead = 0
+      if today_date?(province["updated_at"])
+        new_confirmed = province["new_confirmed"].to_i
+        new_recovered = province["new_recovered"].to_i
+        new_dead = province["new_dead"].to_i
+      end
+
 
       total_confirmed += confirmed
       total_active += active
@@ -40,7 +46,8 @@ class CaseRecord
         dead: dead,
         new_confirmed: new_confirmed,
         new_recovered: new_recovered,
-        new_dead: new_dead
+        new_dead: new_dead,
+        updated_at: province["updated_at"]
       }
     end
 
@@ -54,6 +61,15 @@ class CaseRecord
       new_dead: total_new_dead
     }
     @last_fetch_at = $redis.get("last_fetch_at")
+  end
+
+  def today_date?(str_date)
+    return unless str_date
+
+    date = str_date.to_datetime
+    return unless date
+
+    date >= DateTime.current - 1.days
   end
 
   def to_json
