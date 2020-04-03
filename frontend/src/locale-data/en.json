@@ -15,6 +15,7 @@
   "case.active": "ACTIVE",
   "case.recovered": "RECOVERED",
   "case.dead": "DEAD",
+  "case.new": "new",
 
   "app.no_records": "No Record",
   "app.contacts": "Contacts",
