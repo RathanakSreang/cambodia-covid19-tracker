@@ -63,7 +63,7 @@ Now you can start add your code.
      cp -RT build production # copy new build code
   ```
 
-## Database
+## Datastore
 
 For this app the data is store at: https://airtable.com/shr9ta8lqYMyuLp3O
 
