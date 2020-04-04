@@ -2,6 +2,8 @@
 
 Covid19KH is a project for sharing information related to Covid19 in Cambodia.
 
+![](public/desktop.png)
+
 ## Prerequisites
 
 You need to have:
