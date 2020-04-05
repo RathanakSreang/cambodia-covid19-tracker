@@ -2,6 +2,8 @@
 
 Covid19KH is a project for sharing information related to Covid19 in Cambodia.
 
+![](public/desktop.png)
+
 ## Prerequisites
 
 You need to have:
@@ -61,7 +63,7 @@ Now you can start add your code.
      cp -RT build production # copy new build code
   ```
 
-## Database
+## Datastore
 
 For this app the data is store at: https://airtable.com/shr9ta8lqYMyuLp3O
 
