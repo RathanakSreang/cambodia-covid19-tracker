@@ -2,7 +2,7 @@ importScripts("/precache-manifest.2b56004a774d67acf6f229cc957c2106.js", "https:/
 
 workbox.precaching.precacheAndRoute(self.__precacheManifest);
 
-var staticCacheName = 'covid-static-3'; //TODO update this
+var staticCacheName = 'covid-static-4'; //TODO update this
 self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open(staticCacheName).then(function(cache) {
