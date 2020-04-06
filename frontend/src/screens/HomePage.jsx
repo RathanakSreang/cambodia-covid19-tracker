@@ -30,7 +30,7 @@ class HomePage extends React.Component {
             <p className="mb-1 mr-2">
               <FormattedMessage id="app.updated_at" defaultMessage="Updated:" />
               <span className="text-success">
-                <Moment fromNow>{lastFetchAt}</Moment>
+                <Moment format="DD/MM/YYYY, h:mmA">{lastFetchAt}</Moment>
               </span>
             </p>
           </div>

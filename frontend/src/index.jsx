@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { IntlProvider } from 'react-intl-redux';
 import { PersistGate } from 'redux-persist/lib/integration/react';
 import Moment from 'moment';
+import 'moment-timezone';
 
 import AppRouter from './routers/AppRouter';
 import configureStore from './store/configureStore';

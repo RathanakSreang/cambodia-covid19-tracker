@@ -37,6 +37,16 @@ class CaseRecord
       total_new_recovered += new_recovered
       total_new_dead += new_dead
 
+
+      updated_at = parse_datetime(province["updated_at"])
+      if @last_fetch_at
+        if updated_at && @last_fetch_at < updated_at
+          @last_fetch_at = updated_at
+        end
+      else
+        @last_fetch_at = updated_at
+      end
+
       @provinces << {
         province_en: province["province_en"],
         province: province["province"],
@@ -60,13 +70,16 @@ class CaseRecord
       new_recovered: total_new_recovered,
       new_dead: total_new_dead
     }
-    @last_fetch_at = $redis.get("last_fetch_at")
+  end
+
+  def parse_datetime(str_date)
+    return unless str_date
+
+    str_date.to_datetime
   end
 
   def today_date?(str_date)
-    return unless str_date
-
-    date = str_date.to_datetime
+    date = parse_datetime(str_date)
     return unless date
 
     date >= DateTime.current - 1.days
