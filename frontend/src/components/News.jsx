@@ -5,7 +5,8 @@ import styled from 'styled-components';
 import isEmpty from "lodash/isEmpty";
 import { Row, Col } from "shards-react";
 import { FacebookProvider, EmbeddedPost } from 'react-facebook';
-import Moment from 'react-moment';
+import MomentDate from 'react-moment';
+import Moment from 'moment';
 
 import loader from '../images/oval.svg';
 import { toggleNewsDrawer } from '../actions/dialog.actions';
@@ -54,21 +55,21 @@ class News extends React.Component {
 
     return(
       <PostDate className="text-muted">
-        <Moment format="hh:mm A, DD/MM/YYYY">
+        <MomentDate format="hh:mm A, DD/MM/YYYY">
           {news.publish_date}
-        </Moment>
+        </MomentDate>
       </PostDate>
     );
   }
 
-  renderFBEmbeded() {
+  renderFBEmbeded(className) {
     const {news} = this.props;
     if(isEmpty(news.link)) {
       return(<div/>);
     }
 
     return(
-      <div className="cursor-pointer p-3 border rounded mt-3 text-break" onClick={this.handleClick}>
+      <div className={`cursor-pointer p-3 border rounded mt-3 text-break ${className}`} onClick={this.handleClick}>
         <Row noGutters>
           <Col sm="6" md="6" lg="4">
             <FacebookWraper className="text-center mb-2">
@@ -108,7 +109,7 @@ class News extends React.Component {
     );
   }
 
-  renderVideo() {
+  renderVideo(className) {
     const {news} = this.props;
     if(isEmpty(news.link)) {
       return(<div/>);
@@ -120,7 +121,7 @@ class News extends React.Component {
     }
 
     return(
-      <div className="cursor-pointer p-3 border rounded mt-3 text-break" onClick={this.handleClick}>
+      <div className={`cursor-pointer p-3 border rounded mt-3 text-break ${className}`} onClick={this.handleClick}>
         <Row noGutters>
           <Col sm="6" md="6" lg="4">
             <div className="text-center mb-2">
@@ -154,15 +155,19 @@ class News extends React.Component {
   }
   render() {
     const {news} = this.props;
+    let className = '';
+    if(news.publish_date && Moment(news.publish_date) >= Moment().subtract(1, "days")) {
+      className = 'bg-news-update';
+    }
 
     if(news.type === "video") {
-      return this.renderVideo()
+      return this.renderVideo(className)
     } else if(news.type === "facebook_post") {
-      return this.renderFBEmbeded()
+      return this.renderFBEmbeded(className)
     }
 
     return (
-      <div className="cursor-pointer p-3 border rounded mt-3 text-break" onClick={this.handleClick}>
+      <div className={`cursor-pointer p-3 border rounded mt-3 text-break ${className}`} onClick={this.handleClick}>
         <h5 className="mb-1">{news.title}</h5>
         <div className="mb-1">
           <LinesEllipsis
