@@ -54,8 +54,8 @@ class News extends React.Component {
 
     return(
       <PostDate className="text-muted">
-        <Moment format="hh:mm MMMM DD, YYYY">
-          1976-04-19T12:59-0500
+        <Moment format="hh:mm A, DD/MM/YYYY">
+          {news.publish_date}
         </Moment>
       </PostDate>
     );
