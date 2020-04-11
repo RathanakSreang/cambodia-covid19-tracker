@@ -3,10 +3,16 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { FormattedMessage } from 'react-intl';
 import Moment from 'react-moment';
+import Paper from '@material-ui/core/Paper';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import MapIcon from '@material-ui/icons/Map';
+import ListIcon from '@material-ui/icons/List';
 
 import Overview from "./../components/Overview";
 import Provinces from "./../components/Provinces";
 import NoRecord from "./../components/NoRecord";
+import CambodiaMap from "./../components/CambodiaMap";
 const Container = styled.div`
 `;
 
@@ -17,11 +23,20 @@ const Container = styled.div`
   };
 }, {})
 class HomePage extends React.Component {
+  state = {
+    value: 0
+  }
+
+  handleChange = (event, newValue) => {
+    this.setState({value: newValue});
+  }
+
   render() {
     const {lastFetchAt, isFetching} = this.props;
     if(isFetching) {
       return(<NoRecord isFetching={true}/>);
     }
+
     return (
       <Container className="container">
         {
@@ -36,7 +51,26 @@ class HomePage extends React.Component {
           </div>
         }
         <Overview/>
-        <Provinces/>
+        <Paper className="mb-1">
+          <Tabs
+            value={this.state.value}
+            onChange={this.handleChange}
+            indicatorColor="primary"
+            textColor="primary"
+            centered
+          >
+            <Tab icon={<ListIcon />} label={<FormattedMessage id="label.table" defaultMessage="List" />}/>
+            <Tab icon={<MapIcon />} label={<FormattedMessage id="label.map" defaultMessage="Map" />}/>
+          </Tabs>
+        </Paper>
+        {
+          this.state.value === 1 &&
+          <CambodiaMap/>
+        }
+        {
+          this.state.value !== 1 &&
+          <Provinces/>
+        }
       </Container>
     );
   }

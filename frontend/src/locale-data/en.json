@@ -10,6 +10,8 @@
   "label.active": "Active",
   "label.recovered": "Recovered",
   "label.dead": "Dead",
+  "label.table": "List",
+  "label.map": "Map",
 
   "case.confirmed": "CONFIRMED",
   "case.active": "ACTIVE",

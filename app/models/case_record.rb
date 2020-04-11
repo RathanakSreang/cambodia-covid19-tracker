@@ -57,7 +57,8 @@ class CaseRecord
         new_confirmed: new_confirmed,
         new_recovered: new_recovered,
         new_dead: new_dead,
-        updated_at: province["updated_at"]
+        updated_at: province["updated_at"],
+        code: province["code"].to_i
       }
     end
 
