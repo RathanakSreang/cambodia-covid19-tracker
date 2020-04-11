@@ -4,7 +4,7 @@ import { PublicLayout } from "./../layouts";
 import {permissionConstants} from "../constants";
 
 import HomePage from './../screens/HomePage';
-import LinksPage from './../screens/LinksPage';
+import ProfilePage from './../screens/ProfilePage';
 import ContactsPage from './../screens/ContactsPage';
 import NewsPage from './../screens/NewsPage';
 export default [
@@ -29,7 +29,7 @@ export default [
     plublic: true,
     exact: true,
     layout: PublicLayout,
-    component: LinksPage,
+    component: ContactsPage,
     allowRoles: permissionConstants.normalPermission,
   },
   {
@@ -38,6 +38,14 @@ export default [
     exact: true,
     layout: PublicLayout,
     component: ContactsPage,
+    allowRoles: permissionConstants.normalPermission,
+  },
+  {
+    path: "/profile",
+    plublic: true,
+    exact: true,
+    layout: PublicLayout,
+    component: ProfilePage,
     allowRoles: permissionConstants.normalPermission,
   },
 ];

@@ -1,6 +1,6 @@
 workbox.precaching.precacheAndRoute(self.__precacheManifest);
 
-var staticCacheName = 'covid-static-5'; //TODO update this
+var staticCacheName = 'covid-static-6'; //TODO update this
 self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open(staticCacheName).then(function(cache) {
@@ -9,6 +9,7 @@ self.addEventListener('install', function(event) {
         '/contacts',
         '/links',
         '/news',
+        '/profile',
         '/favicon.ico',
       ]);
     })
@@ -48,6 +49,11 @@ self.addEventListener('fetch', function(event) {
     }
 
     if(requestUrl.pathname === '/news') {
+      event.respondWith(caches.match('/skeleton'));
+      return;
+    }
+
+    if(requestUrl.pathname === '/profile') {
       event.respondWith(caches.match('/skeleton'));
       return;
     }

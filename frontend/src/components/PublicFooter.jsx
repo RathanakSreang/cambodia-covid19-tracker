@@ -5,10 +5,10 @@ import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import HomeIcon from '@material-ui/icons/Home';
 import RestoreIcon from '@material-ui/icons/Restore';
-import ContactPhoneIcon from '@material-ui/icons/ContactPhone';
 import LinkIcon from '@material-ui/icons/Link';
 import { matchPath } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 import { history } from '../routers/AppRouter';
 const styles = () => ({
@@ -50,6 +50,10 @@ class Footer extends React.Component {
       path: "/links",
     });
 
+    const isProfile = !!matchPath(pathname, {
+      path: "/profile",
+    });
+
     if(isHome) {
       page = 'home';
     } else if(isNews) {
@@ -58,6 +62,8 @@ class Footer extends React.Component {
       page = 'contacts';
     } else if(isLinks) {
       page = 'links';
+    } else if (isProfile) {
+      page = 'profile';
     }
 
     this.setState({ page });
@@ -81,8 +87,8 @@ class Footer extends React.Component {
           value="news" icon={<RestoreIcon />} />
         <BottomNavigationAction label={<FormattedMessage id="app.links" defaultMessage="Links" />}
           value="links" icon={<LinkIcon />} className=""/>
-        <BottomNavigationAction label={<FormattedMessage id="app.contacts" defaultMessage="Contacts" />}
-          value="contacts" icon={<ContactPhoneIcon />} className=""/>
+        <BottomNavigationAction label={<FormattedMessage id="app.profile" defaultMessage="Profile" />}
+          value="profile" icon={<AccountCircleIcon />} className=""/>
       </BottomNavigation>
     );
   }
