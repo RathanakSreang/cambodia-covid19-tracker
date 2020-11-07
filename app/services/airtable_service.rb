@@ -11,7 +11,7 @@ class AirtableService
   end
 
   def load_cases_records
-    CaseRecord.new(fetch_data("Cases%20Recorded"))
+    CaseRecord.new(fetch_cases_record)#fetch_data("Cases%20Recorded"))
   end
 
   def load_usefull_links
@@ -27,6 +27,27 @@ class AirtableService
   end
 
   private
+  def fetch_cases_record
+    url = "https://covid19-map.cdcmoh.gov.kh/"
+    key = url
+    val = $redis.get(key)
+    return val if val.present?
+
+    doc = Nokogiri::HTML(URI.open(url))
+    data = doc.css("#map")[0]
+    data_cases = {}
+    if data
+      data_cases = {
+        summary: JSON.parse(data["data-summary"]),
+        covid_19_cases: JSON.parse(data["data-covid-19"])
+      }
+      $redis.set(key, data_cases)
+      $redis.expire(key, 5.minutes)
+    end
+
+    data_cases
+  end
+
   def fetch_data(table_name)
     url = "https://api.airtable.com/v0/#{app_key}/#{table_name}?view=Grid%20view"
     key = url
